@@ -6,12 +6,12 @@ services:
     restart: unless-stopped
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: wifi@2026!
+      MONGO_INITDB_ROOT_PASSWORD: wifi-2026!
       MONGO_INITDB_DATABASE: wifi_portal
     volumes:
       - mongodb_data:/data/db
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongosh -u root -p wifi@2026! --quiet
+      test: echo 'db.runCommand("ping").ok' | mongosh -u root -p wifi-2026! --quiet
       interval: 10s
       timeout: 5s
       retries: 5
@@ -20,11 +20,11 @@ services:
     image: redis:7-alpine
     container_name: wifi-redis
     restart: unless-stopped
-    command: redis-server --requirepass redis@2026!
+    command: redis-server --requirepass redis-2026!
     volumes:
       - redis_data:/data
     healthcheck:
-      test: ["CMD", "redis-cli", "-a", "redis@2026!", "ping"]
+      test: ["CMD", "redis-cli", "-a", "redis-2026!", "ping"]
       interval: 10s
       timeout: 5s
       retries: 5
