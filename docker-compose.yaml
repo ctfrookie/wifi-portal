@@ -48,4 +48,4 @@ services:
 
 volumes:
   mongodb_data:
-  redis_data
+  redis_data:
